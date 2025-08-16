@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>画像一覧</title>
+</head>
+<body>
+    <h1>アップロードされた画像一覧</h1>
+
+    {% if images %}
+        {% for img in images %}
+        <div style="margin-bottom: 20px;">
+            <p><strong>{{ img.file_name }}</strong>（{{ img.uploaded_at }}）</p>
+            <img src="{{ img.url }}" alt="{{ img.file_name }}" width="300">
+            
+            <form action="{{ url_for('delete_image', file_name=img.file_name) }}" method="post">
+                <button type="submit" onclick="return confirm('本当に削除しますか？');">削除</button>
+            </form>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>画像が見つかりませんでした。</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>画像アップロード</title>
+</head>
+<body>
+    <h1>画像をアップロード</h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <button type="submit">アップロード</button>
+    </form>
+
+    <p><a href="/images">画像一覧へ戻る</a></p>
+</body>
+</html>
